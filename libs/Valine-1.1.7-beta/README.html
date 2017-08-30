@@ -1,0 +1,141 @@
+<p><img src="./src/assets/logo.opacity.png" alt=""></p>
+<h1 id="Valine"><a href="#Valine" class="headerlink" title="Valine    "></a>Valine <a href="https://github.com/xCss/Valine/releases"><img src="https://img.shields.io/github/release/xCss/Valine.svg?style=flat-square" alt="version"></a> <a href="https://www.npmjs.com/package/valine"><img src="https://img.shields.io/npm/dt/valine.svg?style=flat-square" alt="npm downloads"></a> <a href="https://circleci.com/gh/xCss/Valine"><img src="https://img.shields.io/circleci/project/github/xCss/Valine/master.svg?style=flat-square" alt="build"></a> <a href="#donate"><img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat-square" alt="donate"></a></h1><h2 id="gt-A-simple-comment-system-based-on-Leancloud"><a href="#gt-A-simple-comment-system-based-on-Leancloud" class="headerlink" title="&gt; A simple comment system based on Leancloud.  "></a>&gt; A simple comment system based on Leancloud.  </h2><p><strong><a href="https://valine.js.org">Live Demo</a></strong></p>
+<p><strong><a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/">中文教程</a></strong></p>
+<ul>
+<li>High speed.</li>
+<li>Safe by default.</li>
+<li>Easy to customize.</li>
+<li>Support <a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE">mail notifier</a>.</li>
+<li>Support validation code.</li>
+<li>No server-side implementation.</li>
+<li>Support part of the markdown syntax.</li>
+</ul>
+<p><strong>Table of content</strong></p>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#donate">Donate</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><strong>1. Installation</strong>   </p>
+<blockquote>
+<p>:warning: <strong>You must first reference the package <code>av-min.js</code> in the web page</strong>  </p>
+</blockquote>
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./dist/Valine.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>or</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>or</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'//unpkg.com/valine@1.1.6/dist/Valine.min.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>or via <a href="https://www.npmjs.com/package/valine">npm</a></p>
+<p><strong>2. Get <code>appId</code>/<code>appKey</code> from Leancloud</strong><br><a href="https://leancloud.cn/dashboard/login.html#/signup">Click here</a> to register or login in <code>leancloud</code>.<br><a href="https://leancloud.cn/dashboard/applist.html#/newapp">Click here</a> Create new application in <code>Leancloud</code>, and you will get <code>appId</code>/<code>appKey</code>.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Valine - A simple comment system based on Leancloud.<span class="tag">&lt;/<span class="name">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./dist/Valine.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">head</span>&gt;</span>
+<span class="tag">&lt;<span class="name">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="undefined">        new Valine({</span>
+<span class="undefined">            av: AV, // source from av-min.js</span>
+<span class="undefined">            el: '.comment' ,</span>
+<span class="undefined">            notify:false, // 邮件提醒 v1.1.4新增</span>
+<span class="undefined">            verify:false, // 验证码 v1.1.4新增</span>
+<span class="undefined">            app_id: 'your appid',</span>
+<span class="undefined">            app_key: 'your appkey',</span>
+<span class="undefined">            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',</span>
+<span class="undefined">            path:window.location.pathname // 路径配置 v1.1.5新增，可填window.location.href</span>
+<span class="undefined">        });</span>
+<span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">html</span>&gt;</span>
+</code></pre>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><table>
+<thead>
+<tr>
+<th>name</th>
+<th>require</th>
+<th>base version</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>av</code></td>
+<td>true</td>
+<td>1.0.0+</td>
+<td>Leancloud Operation library</td>
+</tr>
+<tr>
+<td><code>el</code></td>
+<td>true</td>
+<td>1.0.0+</td>
+<td>Base element (<code>unique</code>)</td>
+</tr>
+<tr>
+<td><code>app_id</code></td>
+<td>true</td>
+<td>1.0.0+</td>
+<td>Your leancloud <code>appid</code></td>
+</tr>
+<tr>
+<td><code>app_key</code></td>
+<td>true</td>
+<td>1.0.0+</td>
+<td>Your leancloud <code>appkey</code></td>
+</tr>
+<tr>
+<td><code>placeholder</code></td>
+<td>false</td>
+<td>1.0.7+</td>
+<td>Comment box placeholder</td>
+</tr>
+<tr>
+<td><code>notify</code></td>
+<td>false</td>
+<td>1.1.4+</td>
+<td><a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE">Mail notifier</a></td>
+</tr>
+<tr>
+<td><code>verify</code></td>
+<td>false</td>
+<td>1.1.4+</td>
+<td>Validation code</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>false</td>
+<td>1.1.5+</td>
+<td>Article path(just like duoshuo <code>thread</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h2><ul>
+<li><a href="https://github.com/xCss/Valine/graphs/contributors">Contributors</a></li>
+</ul>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Support for full markdown syntax</li>
+<li>Syntax highlighting</li>
+<li>And more…</li>
+</ul>
+<h2 id="Donate"><a href="#Donate" class="headerlink" title="Donate"></a>Donate</h2><p>If you are enjoying this app, please consider making a donation to keep it alive, I will try my best to dedicate more time or even full time to work on it. 😉</p>
+<ul>
+<li><a href="https://ws1.sinaimg.cn/large/006qRazegy1fibhig0ywqj30es0erabm.jpg">Donate via Wechat</a></li>
+<li><a href="https://ws1.sinaimg.cn/large/006qRazegy1fibhifhhfnj30ix0io0tt.jpg">Donate via Alipay</a></li>
+</ul>
+<p>If you are not available for this, simply spreading the word for us would help too!</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/xCss/Valine/blob/master/LICENSE">GPL-2.0</a></p>
